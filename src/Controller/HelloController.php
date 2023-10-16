@@ -1,19 +1,19 @@
 <?php
+
 // src/Controller/HelloController.php
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class HelloController extends AbstractController
 {
     /**
-     * Page d'accueil
-     *
-     * @Route("/", name="accueil")
+     * @Route("/{name}", name="hello")
      */
-    public function home(ComplexObject $complexObject)
+    public function hello($name = 'World')
     {
-        // $complexObject->doSomething();
+        return new Response("Hello $name");
     }
 }
